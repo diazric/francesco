@@ -22,21 +22,21 @@
  line-height: 0;
 
  }
-.titulo {
+.2 {
   font-family: "butler";
 
 }
 
 .fMenu{
-  background-color: #4b3719 !important;
+  background-color: #680E1B !important;
 
 }
 .tMenu {
-  color:#4b3719;
+  color:#680E1B;
 }
 .iMenu{
-  background-color: #58595b;
-  color:#dcb363; 
+  background-color: white;
+  color:#680E1B; 
 }
 
 .mTop{
@@ -61,7 +61,7 @@
 }
 
 .fColor{
-  color: #4b3719;
+  color: #680E1B;
   font-size: 1.5em;
 }
 

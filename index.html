@@ -1,0 +1,705 @@
+<?php 
+
+/*
+function sendEmail(){
+if(!empty($_POST)){ 
+
+$headers = 'From: reservas@foodhallrd.com';
+mail('diazric@gmail.com', 
+'Reservacion The W Bar', 
+'Enviado por:' . "\t" . $_POST['name'] . "\r\n" . 'Mensaje:'. "\t". $_POST['message'] .
+"\n\rEmail: \t" . $_POST['email'],
+$headers);
+}
+}*/
+
+function sendEmail() {}
+
+if(!empty($_POST)){
+$url = 'https://www.google.com/recaptcha/api/siteverify';
+$privatekey = "6LeSOBwUAAAAAHKkiW35osH77KDATHIBMvpsIrLW";
+
+$response = file_get_contents($url."?secret=".$privatekey."&response=".$_POST['g-recaptcha-response']."&remonteip=".$_SERVER["REMOTE_ADDR"]);
+$data = json_decode($response);
+
+if (isset($data->success) && $data->success==true) {
+
+$headers = 'From: reservas@foodhallrd.com';
+mail('diazric@gmail.com', 'Reservacion The W Bar', 
+'Enviado por:' . "\t" . $_POST['name'] . "\r\n" . 'Mensaje:'. "\t". $_POST['message'] .
+"\n\rEmail: \t" . $_POST['email'],
+$headers);
+
+}else{
+
+}
+
+}
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Francesco Trattoria</title>
+	<link rel="shortcut icon" href="faviconw.png">
+
+	<!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+	<!--Let browser know website is optimized for mobile-->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name="author" content="Francesco Trattoria">
+	<meta name="description" content=""/>
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+<body>
+
+	<!--Nav Bar     -->
+	<nav class="fMenu" role="navigation">
+		<div class="nav-wrapper container ">
+			<a href="#" class="brand-logo">
+				<img src="images/francesco-trattoria-logo.png" width="40px">
+			</a>
+			<ul class="right center hide-on-med-and-down light titulo11 ">
+				<li><a href="#">INICIO</a></li>
+				<li><a href="#nosotros">NNOSOTROS</a></li>
+				<li><a href="#menu">MEN&Uacute</a></li>
+				<li><a href="#galeria">GALERIA</a></li>
+				<li><a href="#reservas">RESERVAS</a></li>
+				<li><a href="#contacto">CONTACTO</a></li>
+			</ul>
+
+			<ul id="nav-mobile" class="right side-nav light titu">
+				<li><a href="#">Inicio</a></li>
+				<li><a href="#nosotros">Nosotros</a></li>
+				<li><a href="#menu">Menú</a></li>
+				<li><a href="#galeria">Galeria</a></li>
+				<li><a href="#reservas">Reservas</a></li>
+				<li><a href="#contacto">Contacto</a></li>
+			</ul>
+
+			<a href="#" data-activates="nav-mobile" class="button-collapse">
+				<i class="material-icons">menu</i>
+			</a>
+		</div>
+
+	</nav>
+	<!--Nav Bar End -->
+
+	<!--Fondo     -->
+	<div id="index-banner" class="parallax-container">
+		<div class="parallax">
+			<img src="images/imgCentral.png" >
+		</div>
+	</div>
+
+
+
+	<!--Fondo End -->
+
+	<!--About Us     -->
+	<div class="scrollSpy white" itemscope itemtype ="https://schema.org/LocalBusiness">
+		<div class="container">
+			<div class="section">
+				<div class="row">
+					<div class="col s12 m2 l2"></div>
+					<div  class="col s12 m8 l8 scrollspy" id="nosotros">
+						<h2 class="center tMenu">NOSOTROS</h2>
+						<p class="tMenu light center titulo nosFont"><span itemprop="name">
+							<br>Francesco Trattoria está inspirada en nuestra pasión por la forma de vida de los italianos. El amor y el disfrute por la comida, la familia y la vida que ellos tienen, sin importar su origen o condición es la base de nuestro restaurante y nuestro menú, donde encontrarás desde los platos tradicionales de la Nonna hasta nuestras modernas interpretaciones dela gastronomía italiana.
+						</p>
+					</div>
+					<div class="col s12 m2 l2"></div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--About Us End -->
+
+	<!--Arte Promocion     -->
+	<div class="row fMenu">
+		<section>
+			<div class="col s12 m12 l12 pad-col">
+				<img class="responsive-img" src="images/imageIndex2.png">
+			</div>
+		</section>
+
+	</div>
+	<!--Arte Promocion End -->
+	
+	<!--Menu  1   -->
+	<div class="fMenu dPad">
+		<div class="row">
+			<section class="container">
+				<h1 class="titulo mTop center white-text">MENU</h1>
+			</section>	
+		</div>
+
+		<div class="black-text scrollspy fMenu" id="menu">
+
+			<div class="container">
+
+				<div class="row">
+
+					<ul class="collapsible" data-collapsible="accordion">
+						<li>
+							<div class="collapsible-header titulo center fColor">
+								<i class="material-icons "></i>ENTRADAS</div>
+								
+								<div class="collapsible-body">
+									<span>
+
+										<div class="row iMenu mBott">
+										
+										<div class="col s4 m4 l4"></div>
+
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">CALDOS</h5>
+												<p class="pPad">Minestrone con Pancetta / Potaje de Lentjas</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">FRITO MIXTO DE MARISCOS</h5>
+												<p class="pPad">Camar&oacuten / Calamar / Pulpo / Vegetales <br> Tomate Aglio e Olio / Albahaca & Parmesano</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">PULPO A LA PARRILLA</h5>
+												<p class="pPad">Ensalada de r&uacutela / Vinagreta de Alcaparras</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">SALCHICHAS ASADAS</h5>
+												<p class="pPad">Ensalda de Tomates / Perejil / Chimichurri Italiano</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">"POLPETE" ALBONDIGAS ITALIANAS</h5>
+												<p class="pPad">Tomate Aglio e Olio / Gratinado con Grana</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">SART&EacuteN DE GAMBAS</h5>
+												<p class="pPad">Spicy Peperonata / Ajo Tostado / Crostini</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">CARPACCIO DE BERENJENA</h5>
+												<p class="pPad">Pomodoro / Mozzarella / Parmesano / Ensalada de R&uacutela</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">CASEROLA DE BERENJENA & SALCHICHA</h5>
+												<p class="pPad">Pomodoro / Mozzarella / Salchica</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">INVOLTINIS DE CROCANTE</h5>
+												<p class="pPad">Prociutto / Berenjena / Mozzarella / Salsa de Tomate / Aglio e Olio</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">BRUSCETTAS DE CIABATTA</h5>
+												<p class="pPad">-Tomate, Pesto y Taleggio<br>
+												- Sopressata, Espinaca y Parmesano <br> - Alcachofa Italiana y Trufa</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">CROQUETAS DE RISOTTO</h5>
+												<p class="pPad">- Camarones & Pesto <br>- Prociutto & Parmesano</p>
+											</div>
+											<div class="row"></div>
+										</div>
+									</span>
+								</div>
+							</li>
+							<li>
+								<div class="collapsible-header center fColor"><i class="material-icons"></i>CRUDOS</div>
+								<div class="collapsible-body">
+								<span>
+								<div class="row iMenu mBott">
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">CARPACCIO CL&AacuteSICO</h5>
+												<p class="pPad">Tenderloin / R&ucula / Parmesano / Alcaparras</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">CARPACCIO DE DORADO</h5>
+												<p class="pPad">Vinagreta de Almendras / Lascas de Ajo / R&ucula</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">CEVICHE MEDITERR&AacuteNEO</h5>
+												<p class="pPad">Dorado / Aceite de Oliva / Lim&oacuten / Pepino / Lechuga / Aceitunas</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">TARTAR DE AT&UacuteN</h5>
+												<p class="pPad">Favas Verdes / Cebolla Encurtida / Alcaparras Fritas / R&ucula / Tostadas de Parmesano</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">TARTAR DE SALM&OacuteN A LA TOSCANA</h5>
+												<p class="pPad">Vinagreta de Almendras / tomates Secos / Aceitunas Mixtas / R&uacutela / Tostadas de Parmesano	</p>
+											</div>
+											<div class="row"></div>
+										</div>
+								</span>
+								</div>
+							</li>
+							<li>
+								<div class="collapsible-header center fColor"><i class="material-icons"></i>QUESOS & EMBUTIDOS</div>
+								<div class="collapsible-body">
+								<span><div class="row iMenu mBott">
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">CARRITO DE QUESO FRESCO</h5>
+												<p class="pPad">Mozzarella Fresca a al Capresa</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">MOZZARELLA EN "CARROZZA" HORNEADA </h5>
+												<p class="pPad">Panzanella de la casa / Tomate Fresco / Crutones / Cebolla / Ajo / Parmesano</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">BURRATA HORNEADA</h5>
+												<p class="pPad">Envuelta en Speck / tomate / Perejil / Crutones</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">PROVOLETA A LA TOSCANA</h5>
+												<p class="pPad">Tomate Seco / Aceitunas Mixtas / Hierbas</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">CAZUELA DE PORTOBELLO & TALEGGIO A LA LEÑA</h5>
+												<p class="pPad">Gratinado con Crema de Pinot Grigio</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">TABLA DE QUESOS</h5>
+												<p class="pPad">- Taleggio - Pecorino <br>- Parmesano Reggiano - Gorgonzola Dulce</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">TABLA DE EMBUTIDOS</h5>
+												<p class="pPad">- Prociutto  - Salami Picante <br>- Speck - Chorizo</p>
+											</div>
+											<div class="row"></div>
+										</div></span>
+								</div>
+							</li>
+							<li>
+								<div class="collapsible-header center fColor"><i class="material-icons"></i>PIZZA AL HORNO DE LEÑA</div>
+								<div class="collapsible-body"><span><div class="row iMenu mBott">
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">FRESCO (SIN SALSA)</h5>
+												<p class="pPad">Tomates Frescos / Mozzarella Fresca / Or&eacutegano Fresco / Aceite Lombardi</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">VERDURE</h5>
+												<p class="pPad">Hongos / Berenjena / Zucchini / Aj&iacutees / Pesto</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">PARMA</h5>
+												<p class="pPad">Prosciutto / R&uacutecula / Tomate Seco / Lascas de Parmesano / Vincotto</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">SARDINERO</h5>
+												<p class="pPad">Anchoas / Cebolla / Alcaparras / Aceitunas</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">SALSICCIA</h5>
+												<p class="pPad">Salchicha Italiana / Espinaca / Cebollino</p>
+											</div>
+											<div class="row"></div>
+										</div></span></div>
+							</li>
+						</ul>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--Menu End -->
+
+		<!--Galeria Bar -->
+
+		<div class="row soc-pad scrollspy mTop" id="galeria">
+
+			<div class="col s4 m4 l4 pad-col">
+				
+				<div class="card-image waves-effect">
+					<img class="responsive-img" src="./images/mPic1.png">
+				</div>
+
+			</div>
+
+			<div class="col s4 m4 l4 pad-col">
+				
+				<div class="card-image waves-effect">
+					<img class="responsive-img" src="./images/mPic2.png">
+				</div>
+
+			</div>
+
+			<div class="col s4 m4 l4 pad-col">
+				
+				<div class="card-image waves-effect">
+					<img class="responsive-img" src="./images/mPic3.png"> 
+				</div>
+
+			</div>
+
+
+		</div>
+		<div class="row black">
+			<div class="col s4 m4 l4 pad-col">
+				
+				<div class="card-image waves-effect">
+					<img class="responsive-img" src="./images/mPic4.png">
+
+				</div>
+
+			</div>
+
+			<div class="col s4 m4 l4 pad-col">
+				
+				<div class="card-image waves-effect">
+					<img class="responsive-img" src="./images/mPic5.png">
+				</div>
+
+			</div>
+
+			<div class="col s4 m4 l4 pad-col">
+				
+				<div class="card-image waves-effect">
+					<img class="responsive-img" src="./images/mPic6.png">
+				</div>
+				
+			</div>
+		</div>
+
+
+    <!-- Menu 2 -->
+
+	<div class="fMenu mmTop">
+		
+
+		<div class="black-text scrollspy fMenu" id="menu">
+
+			<div class="container">
+
+				<div class="row">
+<div class="row"></div>
+					<ul class="collapsible" data-collapsible="accordion">
+
+						<li>
+
+							<div class="collapsible-header titulo center fColor">
+								<i class="material-icons "></i>ENSALADAS</div>
+
+								<div class="collapsible-body">
+									<span>
+										<div class="row iMenu mBott">
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">FRANCESCO CAESAR</h5>
+												<p class="pPad">Pollo al Grill / Lechuga Romana / Crutones / Pancetta / Vegetales al Grill</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">ENSALADA DE PROSCIUTTO</h5>
+												<p class="pPad">Prociutto / Sandia / Queso de Cabra / Vincotto / Pistachios</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">ENSALADA DE CARNE A LA PARRILLA</h5>
+												<p class="pPad">Pancetta / Parmesano / Bals&aacutemico / Tomate Rostizado / Lechuga Romana</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">PANZANELLA CON GAMBAS AGLI E OLIO</h5>
+												<p class="pPad">Romana / Crutones de Ciabata / Pepino / Salami Genoa / Tomate / Albahaca</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">ENDIVIA</h5>
+												<p class="pPad">Gorgonzola / Prosciutto / Tomate Cherry / R&uacutecula / Reduci&oacuten de Bals&aacutemico</p>
+											</div>
+											<div class="row"></div>
+										</div>
+									</span>
+								</div>
+							</li>
+							<li>
+								<div class="collapsible-header center fColor"><i class="material-icons"></i>CARNE A LA LEÑA</div>
+								<div class="collapsible-body">
+								<span>
+								<div class="row iMenu mBott">
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">TOMAHAWK RIBEYE</h5>
+												<p class="pPad">45 OZ</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">BISTECCA FIORENTINA</h5>
+												<p class="pPad">45 OZ</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">TAGLIATA DE SIRLOIN</h5>
+												<p class="pPad">14 OZ</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">CHURRASCO A LA PARRILLA</h5>
+												<p class="pPad">10 OZ</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">FILETE TENDERLOIN</h5>
+												<p class="pPad">10 OZ</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">CHULETON DE TERNERA A LA PARMEGIANA</h5>
+												<p class="pPad"></p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">OSSOBUCO DE CORDERO ASADO</h5>
+												<p class="pPad"></p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">OSSOBUCO DE TERNERA ASADO</h5>
+												<p class="pPad"></p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">VACIO A LA PARRILLA</h5>
+												<p class="pPad"></p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">SHORT RIB AL BALS&AacuteMICO</h5>
+												<p class="pPad"></p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">POLLO CACCIATORE A LA LEÑA</h5>
+												<p class="pPad"></p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">GALLINITA RELLENA A LA LEÑA</h5>
+												<p class="pPad"> Papas / Sopressata / Alcaparras / Salvia</p>
+											</div>
+											<div class="row"></div>
+										</div>
+
+								</span>
+								</div>
+							</li>
+							<li>
+								<div class="collapsible-header center fColor"><i class="material-icons"></i>PASTAS & RISOTTOS DE AUTOR</div>
+								<div class="collapsible-body">
+								<span><div class="row iMenu mBott">
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">LANGOSTINOS & GNOCCHI</h5>
+												<p class="pPad">Langostinos al Grill con Gnocchi de Auyama y Salsa de Ajo Confitado</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">PULPO & FUSSILI</h5>
+												<p class="pPad">Pulpo glaseado en Vino Tinto con Pancetta, Tomate Cherry y Queso Pecorino</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">RABO E PEPE</h5>
+												<p class="pPad">Pasta Trecce gratinado con Rag&uacute de Rabo a la Pimienta</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">TORTELINI RELLENO DE BURRATA</h5>
+												<p class="pPad">Auyama Asada, Salsa de Cepa de Apio, Trufa y Speck</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">FETTUCCINE NERO</h5>
+												<p class="pPad">Pesto de ALcachofa, Tomate Cherry y Camarones a la Diavolo</p>
+											</div>
+											<div class="row"></div>
+										</div></span>
+								</div>
+							</li>
+							<li>
+								<div class="collapsible-header center fColor"><i class="material-icons"></i>PESCADOS & MARISCOS</div>
+								<div class="collapsible-body"><span><div class="row iMenu mBott">
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">BACALAO ALA LIVORNESE</h5>
+												<p class="pPad">Linguine / tomate / Alcaparras / Aceituna / Vino Blanco</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">LUBINA A LA LEÑA</h5>
+												<p class="pPad">Or&eacuteno / Trufa / Ajo / Perejil / Linguine Aglio e Olio</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">TAGLIATA DE AT&UacuteN</h5>
+												<p class="pPad">Ensalada Fresca de Tomate Cherry / R&uacutecula / Aceite de Romero</p>
+											</div>
+											<div class="row"></div>
+										</div></span></div>
+							</li>
+							<li>
+								<div class="collapsible-header center fColor"><i class="material-icons"></i>CL&AacuteSICOS</div>
+								<div class="collapsible-body"><span><div class="row iMenu mBott">
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">LASAGNA BOLOGNESA EN EL HORNO DE LEÑA</h5>
+												<p class="pPad">Gratinado con Mozzarela y Parmesano</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">FARFALLE A LA BOLOGNESA</h5>
+												<p class="pPad">Con Parmesano y Albahaca</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">PENNE AL VODKA</h5>
+												<p class="pPad">Salm&oacuten Fresco en Pomodoro y Parmesano</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">RIGATONI AURORA</h5>
+												<p class="pPad">Pasta Rigatoni, Pollo y Pancetta</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">LINGUINNE AGLIO E OLIO AL FRUTTI DI MARE</h5>
+												<p class="pPad">Pulpo, Camarones y Mejillones, Vino Blanco. Ajo y Perejil</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">PENNE AL PESTO GENOVESE</h5>
+												<p class="pPad">Camarones al Srt&eacuten con Pesto Genovese y Queso Pecorino</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">SPAGHETTI AL CACIO E PEPE</h5>
+												<p class="pPad">Hecho en Rueda de Parmesano con Pimienta Negra y Tocineta Ahumada</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">FETTUCCINE A LA CARBONARA</h5>
+												<p class="pPad">Hecho en Rueda de Parmesano con Pancetta y Yema de Huevo</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">RAVIOLI RELLENO DE ESPINACA Y RICOTTA</h5>
+												<p class="pPad">En Salsa Cuatro Quesos y Gratinado con Mozzarella Fresca</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">RAVIOLI DE SALM&OacuteN</h5>
+												<p class="pPad">Tomate Aglio e Olio, R&uacutecula y Parmesano</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">S{AGHETTI ALL'AMATRICIANA</h5>
+												<p class="pPad">Pepperoncino, Pancetta y Tomate</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">PENNE CUATRO QUESOS AL HORNO DE LEÑA</h5>
+												<p class="pPad">Con Pancetta y Trufa</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">GNOCCI ALLA SORRENTINA</h5>
+												<p class="pPad">Salsa Pomodoro gratinado con Mozzarella</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">LINGUINE VONGOLE</h5>
+												<p class="pPad">Vino Blanco, Parmesano, Ajo y Perejil</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">RISOTTO DE HONGOS MIXTOS</h5>
+												<p class="pPad">Parmesano y Pancetta</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">RISTTO AL PESTO</h5>
+												<p class="pPad">Camarones y Queso Pecorino</p>
+											</div>
+											<div class="col s12 m12 l12 center">
+												<h5 class="titulo">RISOTTO PARMESANO CON PANCETTA Y TRUFA</h5>
+												<p class="pPad"></p>
+											</div>
+											<div class="row"></div>
+										</div></span></div>
+							</li>
+						</ul>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	
+		
+	<!-- Menu 2 End -->
+	<!--Contacto     -->
+	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+		<div class="fMenu white-text section mBot">
+			<div class="container">
+				<h2 class="titulo">Reservaci&oacuten</h2>
+				<div class="col s12 m12 l12">
+
+					<div class="row">
+						<div class="input-field col s6">
+							<input id="last_name" type="text" class="validate" name="name">
+							<label for="last_name" class="titulo1">Nombre y apellido</label>
+						</div>
+						<div class="input-field col s6">
+							<input id="email" type="email" class="validate" name="email">
+							<label for="email" class="titulo1">Email</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<textarea id="textarea1" class="materialize-textarea" name="message"></textarea>
+							<label for="textarea1" class="titulo1">Mensaje</label>
+						</div>
+						<div class="input-field col s6">
+							<button class="btn white black-text waves-effect waves-light">
+								<input type="submit" value="Enviar" onclick="<?php sendEmail();?>"> 
+
+							</button>
+						</div>
+						<div class="input-field col s6">
+							<div class="g-recaptcha" data-sitekey="6LeSOBwUAAAAANermLQzeLodMCe6krbvfxHcwZJp"></div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+
+	<!--Contacto End -->
+
+
+</div>
+
+<!--Galeria End -->
+
+
+<!-- Footer -->
+<footer id="reservas" class="fMenu page-footer scrollspy mTop">
+	<div class="container scrollspy " id="contacto">
+		<div class="row">
+			<div class="col l6 s12"> 
+				<h5 class="white-text light titulo1" itemscope itemtype ="http://schema.org/Organization">CONTACTOS</h5>
+				<p class="grey-text text-lighten-4 light" itemprop="address">Lope de Vega esq. Max Henriquez Ureña Ens. Piantini.<br>Lunes-Viernes de 5:00 P.M. a 2:30 A.M. <br>Sábados-Domingos de 12:00 P.M. a 2:30 A.M.<br> <span itemprop="telephone">T. 809 475 1007</span></p>
+			</div>
+			<div class="col l4 offset-l2 s12">
+				<h5 class="white-text light titulo1">REDES SOCIALES</h5>
+				<ul>
+					<li><img class="responsive-img s-svg"  src="./images/facebook.svg">
+						<a class="grey-text text-lighten-3 light" style="vertical-align: center" href="https://www.facebook.com/thewbar/?rf=566773470160604" target="_blank">Facebook</a></li>
+
+						<li><img class="responsive-img s-svg" src="./images/instagram.svg">
+							<a class="grey-text text-lighten-3 light" href="https://www.instagram.com/thewbar/" target="_blank"> Instagram</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright black">
+			<div class="container center light">
+				<span style="font-size: .8em;">© 2017 FOODHALL - FRANCESCO TRATTORIA | Design by <a href="https://www.ricardodiazm.net">Ricardo Diaz</a></span>
+			</div>
+		</div>
+	</footer>
+	<!-- Footer End -->
+
+	<!--Import jQuery before materialize.js-->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/materialize.js"></script>
+	<script src="js/init.js"></script>
+
+
+	<script type="text/javascript">
+
+		$( document ).ready(function(){
+			$('.scrollspy').scrollSpy();
+			$('.parallax').parallax();
+			$('.carousel.carousel-slider').carousel({full_width: true});
+			$(".button-collapse").sideNav({closeOnClick: true});
+
+
+
+		});
+	</script>
+
+</body>
+</html>
